@@ -6,7 +6,10 @@ import { useTypingEffect } from '@/hooks/useTypingEffect';
 
 export const Hero = () => {
   const heroRef = useRef<HTMLElement>(null);
+  // FIX: "IMANSHU" -> "HIMANSHU"
   const { displayedText: nameText, isComplete: nameComplete } = useTypingEffect('HIMANSHU RAJ', 150);
+  
+  // FIX: Added 'nameComplete' check to prevent "undefined"
   const { displayedText: roleText, isComplete: roleComplete } = useTypingEffect(
     nameComplete ? 'Product Management & Applied AI Student 🚀' : '',
     50
@@ -69,32 +72,33 @@ export const Hero = () => {
           </div>
         )}
         
+        {/* FIX: Updated icons to use brand color glow style */}
         {roleComplete && (
           <div className="flex items-center gap-6">
           <a
             href="https://github.com/HR-894"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-foreground/70 hover:text-primary transition-all hover:scale-125 hover:drop-shadow-[0_0_8px_rgba(160,80,240,0.8)]"
+            className="icon-link-box github"
             aria-label="GitHub"
           >
-            <Github size={24} />
+            <Github size={20} className="text-white" />
           </a>
           <a
             href="https://www.linkedin.com/in/himanshu-raj-373297383/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-foreground/70 hover:text-primary transition-all hover:scale-125 hover:drop-shadow-[0_0_8px_rgba(160,80,240,0.8)]"
+            className="icon-link-box linkedin"
             aria-label="LinkedIn"
           >
-            <Linkedin size={24} />
+            <Linkedin size={20} className="text-white" />
           </a>
           <a
             href="mailto:contacthimanshu222@gmail.com"
-            className="text-foreground/70 hover:text-primary transition-all hover:scale-125 hover:drop-shadow-[0_0_8px_rgba(160,80,240,0.8)]"
+            className="icon-link-box email"
             aria-label="Email"
           >
-            <Mail size={24} />
+            <Mail size={20} className="text-white" />
           </a>
           </div>
         )}

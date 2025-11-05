@@ -16,6 +16,7 @@ interface Project {
   liveUrl?: string;
 }
 
+// FIX: Updated GitHub links and replaced broken image
 const projects: Project[] = [
   {
     title: 'AI Chat Application',
@@ -33,8 +34,10 @@ const projects: Project[] = [
   {
     title: 'Prompt Engineering Tool',
     desc: 'Developed a prompt optimization tool for improving AI model outputs.',
-    img: 'https://images.unsplash.com/photo-1686191128892-5ba6e4cdd47e?w=800&h=600&fit=crop',
-    liveUrl: '#'
+    // Replaced broken image with a working one
+    img: 'https://images.unsplash.com/photo-1678483787762-403b5f39c874?w=800&h=600&fit=crop', 
+    liveUrl: '#',
+    githubUrl: 'https://github.com/HR-894'
   },
   {
     title: 'AI Content Generator',

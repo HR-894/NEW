@@ -137,7 +137,8 @@ export const Contact = () => {
               <h3 className="font-bold mb-1">
                 <span className="glass-text text-glow">Location</span>
               </h3>
-              <p className="glass-text text-sm">IIT Roorkee, India</p>
+              {/* FIX: Changed location */}
+              <p className="glass-text text-sm">Bihar, India</p>
             </div>
           </Card>
         </div>

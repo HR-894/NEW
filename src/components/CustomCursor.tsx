@@ -2,36 +2,36 @@ import { useEffect, useRef } from 'react';
 
 export const CustomCursor = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
-  const trailRefs = useRef<HTMLDivElement[]>([]);
+  const trailRef = useRef<HTMLDivElement>(null);
+  
+  // Store last position
+  const lastPos = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     const cursor = cursorRef.current;
-    if (!cursor) return;
-
-    let mouseX = 0;
-    let mouseY = 0;
+    const trail = trailRef.current;
+    if (!cursor || !trail) return;
 
     const handleMouseMove = (e: MouseEvent) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+      const { clientX, clientY } = e;
       
-      // Direct update for smoother cursor
-      if (cursor) {
-        cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+      // Update last position immediately
+      lastPos.current = { x: clientX, y: clientY };
+      
+      // Main cursor tracks instantly
+      cursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
+    };
+    
+    // Trail follows with a delay using CSS transition
+    const followTrail = () => {
+      if (trail) {
+        trail.style.transform = `translate(${lastPos.current.x}px, ${lastPos.current.y}px)`;
       }
-
-      // Update trails with slight delay
-      trailRefs.current.forEach((trail, index) => {
-        if (trail) {
-          const delay = (index + 1) * 2;
-          setTimeout(() => {
-            trail.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-          }, delay);
-        }
-      });
+      requestAnimationFrame(followTrail);
     };
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    followTrail(); // Start the trail animation loop
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
@@ -40,32 +40,26 @@ export const CustomCursor = () => {
 
   return (
     <>
-      {/* Trail effects */}
-      {[...Array(3)].map((_, i) => (
-        <div
-          key={i}
-          ref={(el) => {
-            if (el) trailRefs.current[i] = el;
-          }}
-          className="hidden md:block fixed top-0 left-0 w-4 h-4 rounded-full pointer-events-none z-[9999] mix-blend-screen transition-none"
-          style={{
-            background: `radial-gradient(circle, hsl(var(--primary) / ${0.3 - i * 0.1}), transparent)`,
-            filter: 'blur(4px)',
-            willChange: 'transform',
-            transform: 'translate3d(-50%, -50%, 0)',
-          }}
-        />
-      ))}
+      {/* Trail Effect (simplified) */}
+      <div
+        ref={trailRef}
+        className="hidden md:block fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2"
+        style={{
+          background: `radial-gradient(circle, hsl(var(--primary) / 0.3), transparent)`,
+          filter: 'blur(8px)',
+          willChange: 'transform',
+          transition: `transform 80ms ease-out`, // Smooth CSS transition
+        }}
+      />
       
-      {/* Main cursor */}
+      {/* Main Cursor (Bright & Visible) */}
       <div
         ref={cursorRef}
-        className="hidden md:block fixed top-0 left-0 w-6 h-6 rounded-full pointer-events-none z-[10000] mix-blend-screen border-2 border-primary/50 transition-none"
+        className="hidden md:block fixed top-0 left-0 w-3 h-3 rounded-full pointer-events-none z-[10000] -translate-x-1/2 -translate-y-1/2"
         style={{
-          background: 'radial-gradient(circle, hsl(var(--primary) / 0.5), transparent)',
-          boxShadow: '0 0 20px hsl(var(--primary) / 0.6)',
+          background: 'hsl(var(--foreground))',
+          boxShadow: '0 0 10px hsl(var(--foreground)), 0 0 20px hsl(var(--foreground))',
           willChange: 'transform',
-          transform: 'translate3d(-50%, -50%, 0)',
         }}
       />
     </>

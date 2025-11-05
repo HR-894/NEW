@@ -6,26 +6,27 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// FIX: Updated skills to match LinkedIn/PDF
 const types = [
   {
-    icon: Brain,
-    title: 'AI & Machine Learning',
-    desc: 'Building intelligent systems using cutting-edge AI technologies and frameworks.'
+    icon: Zap,
+    title: 'Generative AI Tools',
+    desc: 'Leveraging cutting-edge generative AI tools and LLMs to build innovative solutions.'
   },
   {
     icon: Code,
-    title: 'Full-Stack Development',
-    desc: 'Creating robust web applications with modern frameworks and best practices.'
+    title: 'AI Automation',
+    desc: 'Automating complex processes and workflows using AI-driven technologies.'
   },
   {
     icon: LineChart,
-    title: 'Product Management',
+    title: 'Product Strategy',
     desc: 'Strategic product thinking from ideation to launch and optimization.'
   },
   {
-    icon: Zap,
+    icon: Brain,
     title: 'Prompt Engineering',
-    desc: 'Crafting effective prompts to maximize AI model performance and outputs.'
+    desc: 'Crafting and refining prompts to maximize AI model performance and outputs.'
   }
 ];
 

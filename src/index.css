@@ -109,13 +109,15 @@ All colors MUST be HSL.
     transition: background 0.3s ease, border 0.3s ease;
   }
   
+  /* --- FIX: Text Visibility --- */
   .glass-text {
+    /* Replaced dark shadow with a light one for visibility */
     text-shadow: 
-      0 0 20px rgba(0, 0, 0, 0.8),
-      0 0 40px rgba(0, 0, 0, 0.6),
-      0 2px 4px rgba(0, 0, 0, 0.9);
+      0 0 8px hsl(var(--foreground) / 0.3),
+      0 0 15px hsl(var(--primary) / 0.2);
     filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
   }
+  /* --- End Fix --- */
   
   .text-gradient {
     background: linear-gradient(
@@ -134,6 +136,42 @@ All colors MUST be HSL.
       0 0 20px rgba(160, 80, 240, 0.3),
       0 0 30px rgba(160, 80, 240, 0.2);
   }
+  
+  /* --- NEW: Multicolor Glow --- */
+  .text-glow-multicolor {
+    animation: multicolor-glow 5s ease-in-out infinite;
+  }
+  /* --- End New --- */
+  
+  /* --- NEW: Brand Icon Link --- */
+  .icon-link-box {
+    @apply flex h-10 w-10 items-center justify-center rounded-lg transition-all duration-300;
+  }
+  
+  .icon-link-box.github {
+    @apply bg-[#181717];
+    box-shadow: 0 4px 15px rgba(24, 23, 23, 0.3);
+  }
+  .icon-link-box.github:hover {
+    @apply scale-110 shadow-[0_0_20px_#181717];
+  }
+  
+  .icon-link-box.linkedin {
+    @apply bg-[#0A66C2];
+    box-shadow: 0 4px 15px rgba(10, 102, 194, 0.3);
+  }
+  .icon-link-box.linkedin:hover {
+    @apply scale-110 shadow-[0_0_20px_#0A66C2];
+  }
+
+  .icon-link-box.email {
+    @apply bg-[#D44638];
+    box-shadow: 0 4px 15px rgba(212, 70, 56, 0.3);
+  }
+  .icon-link-box.email:hover {
+    @apply scale-110 shadow-[0_0_20px_#D44638];
+  }
+  /* --- End New --- */
   
   .animate-float {
     animation: float 6s ease-in-out infinite;
@@ -191,6 +229,26 @@ All colors MUST be HSL.
       0 0 40px rgba(160, 80, 240, 0.3);
   }
 }
+
+/* --- NEW: Multicolor Glow Keyframes --- */
+@keyframes multicolor-glow {
+  0% {
+    text-shadow: 0 0 15px hsl(var(--grad-purple) / 0.8);
+  }
+  25% {
+    text-shadow: 0 0 15px hsl(var(--grad-blue) / 0.8);
+  }
+  50% {
+    text-shadow: 0 0 15px hsl(var(--grad-pink) / 0.8);
+  }
+  75% {
+    text-shadow: 0 0 15px hsl(var(--grad-salmon) / 0.8);
+  }
+  100% {
+    text-shadow: 0 0 15px hsl(var(--grad-purple) / 0.8);
+  }
+}
+/* --- End New --- */
 
 @keyframes slideUp {
   from {

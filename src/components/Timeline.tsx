@@ -12,29 +12,30 @@ interface TimelineItem {
   icon: 'education' | 'award' | 'learning' | 'achievement';
 }
 
+// FIX: Updated timeline data based on Roadmap PDF
 const timelineData: TimelineItem[] = [
   {
     year: '2026',
-    title: 'CUET Aspirant',
-    description: 'Preparing for Common University Entrance Test with focus on strategic planning and execution',
+    title: 'CUET Aspirant & BCA Start',
+    description: 'Aiming to start BCA program after CUET 2026 to build a strong technical foundation.',
     icon: 'achievement'
   },
   {
-    year: '2024-Present',
+    year: '2025-2026',
     title: 'IIT Roorkee (iHUB)',
-    description: 'Building AI-first product thinking and working on cutting-edge generative AI projects',
+    description: 'Product Management & Applied AI program, focusing on AI-first product thinking.',
     icon: 'education'
   },
   {
-    year: '2023-2024',
-    title: 'AI & Product Strategy',
-    description: 'Deep dive into prompt engineering, generative AI, and product management methodologies',
+    year: '2024-2025',
+    title: 'CBSE 12th (PCM)',
+    description: 'Completed higher secondary education with a focus on Physics, Chemistry, and Maths.',
     icon: 'learning'
   },
   {
     year: '2023',
-    title: 'Started Journey',
-    description: 'Began exploring the intersection of artificial intelligence and product development',
+    title: 'Started AI Journey',
+    description: 'Began exploring artificial intelligence, prompt engineering, and product development.',
     icon: 'award'
   }
 ];
