@@ -56,14 +56,12 @@ export const Types = () => {
   return (
     <section ref={sectionRef} id="types" className="container mx-auto px-6 py-20 relative z-10">
       <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-        <span className="glass-text text-glow animate-glow inline-block">
+        <span className="section-heading-glass text-glow animate-glow inline-block">
           What I <span className="text-gradient">Do</span>
         </span>
       </h2>
-      <p className="text-center mb-12 max-w-2xl mx-auto">
-        <span className="glass-text">
+      <p className="text-center mb-12 max-w-2xl mx-auto text-foreground/90"> {/* <-- FIX: Removed glass-text */}
           My expertise spans across multiple domains in technology and product development
-        </span>
       </p>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -82,11 +80,11 @@ export const Types = () => {
                 <Icon size={32} className="text-primary group-hover:drop-shadow-[0_0_8px_rgba(160,80,240,0.8)]" />
               </div>
               <h3 className="text-xl font-bold mb-2">
-                <span className="glass-text text-glow group-hover:animate-glow">
+                <span className="text-gradient"> {/* <-- FIX: gradient text */}
                   {type.title}
                 </span>
               </h3>
-              <p className="text-sm glass-text">{type.desc}</p>
+              <p className="text-sm text-foreground/90">{type.desc}</p> {/* <-- FIX: Removed glass-text */}
             </Card>
           );
         })}

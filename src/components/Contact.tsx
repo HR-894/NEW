@@ -49,10 +49,8 @@ export const Contact = () => {
           Get In <span className="text-gradient">Touch</span>
         </span>
       </h2>
-      <p className="text-center mb-12 max-w-2xl mx-auto">
-        <span className="glass-text">
+      <p className="text-center mb-12 max-w-2xl mx-auto text-foreground/90"> {/* <-- FIX: Removed glass-text */}
           Have a project in mind or want to collaborate? Let's connect!
-        </span>
       </p>
       
       <div className="contact-content max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
@@ -67,7 +65,8 @@ export const Contact = () => {
                 type="text"
                 placeholder="Your Name"
                 required
-                className="bg-background/50 border-border hover:border-primary/50 focus:border-primary transition-all"
+                // FIX: Use bg-card for better visibility in light mode
+                className="bg-card border-muted hover:border-primary/50 focus:border-primary transition-all"
               />
             </div>
             <div>
@@ -75,7 +74,8 @@ export const Contact = () => {
                 type="email"
                 placeholder="Your Email"
                 required
-                className="bg-background/50 border-border hover:border-primary/50 focus:border-primary transition-all"
+                // FIX: Use bg-card for better visibility in light mode
+                className="bg-card border-muted hover:border-primary/50 focus:border-primary transition-all"
               />
             </div>
             <div>
@@ -83,7 +83,8 @@ export const Contact = () => {
                 placeholder="Your Message"
                 required
                 rows={6}
-                className="bg-background/50 border-border resize-none hover:border-primary/50 focus:border-primary transition-all"
+                // FIX: Use bg-card for better visibility in light mode
+                className="bg-card border-muted resize-none hover:border-primary/50 focus:border-primary transition-all"
               />
             </div>
             <Button 
@@ -104,12 +105,11 @@ export const Contact = () => {
             </div>
             <div>
               <h3 className="font-bold mb-1">
-                <span className="glass-text text-glow">Email</span>
+                <span className="text-gradient">Email</span> {/* <-- FIX: gradient text */}
               </h3>
               <a
                 href="mailto:contacthimanshu222@gmail.com"
-                className="glass-text text-sm hover:text-primary transition-colors"
-              >
+                className="text-foreground/90 text-sm hover:text-primary transition-colors"> {/* <-- FIX: Removed glass-text */}
                 contacthimanshu222@gmail.com
               </a>
             </div>
@@ -122,9 +122,9 @@ export const Contact = () => {
             </div>
             <div>
               <h3 className="font-bold mb-1">
-                <span className="glass-text text-glow">Phone</span>
+                <span className="text-gradient">Phone</span> {/* <-- FIX: gradient text */}
               </h3>
-              <p className="glass-text text-sm">Available on request</p>
+              <p className="text-foreground/90 text-sm">Available on request</p> {/* <-- FIX: Removed glass-text */}
             </div>
           </Card>
           
@@ -135,9 +135,9 @@ export const Contact = () => {
             </div>
             <div>
               <h3 className="font-bold mb-1">
-                <span className="glass-text text-glow">Location</span>
+                <span className="text-gradient">Location</span> {/* <-- FIX: gradient text */}
               </h3>
-              <p className="glass-text text-sm">Bihar, India</p>
+              <p className="text-foreground/90 text-sm">Bihar, India</p> {/* <-- FIX: Removed glass-text */}
             </div>
           </Card>
         </div>

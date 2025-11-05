@@ -9,15 +9,23 @@ export const ThemeToggle = () => {
     
     if (isDark) {
       root.style.setProperty('--background', '240 38% 17%');
-      root.style.setProperty('--foreground', '270 40% 96%');
+      root.style.setProperty('--foreground', '0 0% 100%'); /* <-- FIX: Pure White */
       root.style.setProperty('--card', '240 29% 23%');
+      root.style.setProperty('--popover', '240 29% 23%');
+      root.style.setProperty('--card-foreground', '0 0% 100%'); /* <-- FIX: Pure White */
+      root.style.setProperty('--popover-foreground', '0 0% 100%'); /* <-- FIX: Pure White */
       root.style.setProperty('--muted', '240 20% 35%');
+      root.style.setProperty('--muted-foreground', '0 0% 85%'); /* <-- FIX: Neutral Grey */
       root.style.setProperty('--border', '240 20% 35%');
     } else {
       root.style.setProperty('--background', '0 0% 98%');
-      root.style.setProperty('--foreground', '240 38% 17%');
+      root.style.setProperty('--foreground', '240 38% 17%'); /* Dark Text */
       root.style.setProperty('--card', '0 0% 100%');
+      root.style.setProperty('--popover', '0 0% 100%');
+      root.style.setProperty('--card-foreground', '240 38% 17%'); /* Dark Text */
+      root.style.setProperty('--popover-foreground', '240 38% 17%'); /* Dark Text */
       root.style.setProperty('--muted', '240 5% 85%');
+      root.style.setProperty('--muted-foreground', '240 5% 40%'); /* <-- FIX: Darker placeholder */
       root.style.setProperty('--border', '240 6% 90%');
     }
   }, [isDark]);

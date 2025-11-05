@@ -114,8 +114,8 @@ export const Timeline = () => {
                 <div className={`flex items-center gap-3 mb-3 ${index % 2 === 0 ? 'justify-end' : 'justify-start'}`}>
                   <span className="text-2xl font-bold text-gradient">{item.year}</span>
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-foreground glass-text">{item.title}</h3>
-                <p className="text-foreground/80">{item.description}</p>
+                <h3 className="text-xl font-bold mb-2 text-gradient">{item.title}</h3> {/* <-- FIX: gradient text */}
+                <p className="text-foreground/90">{item.description}</p> {/* <-- FIX: Standard text */}
               </div>
             </div>
 

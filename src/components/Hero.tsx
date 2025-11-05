@@ -38,24 +38,25 @@ export const Hero = () => {
         <div className="absolute bottom-0 left-0 w-20 h-20 border-b-2 border-l-2 border-primary/50 rounded-bl-2xl" />
         <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-primary/50 rounded-br-2xl" />
         
-        <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight relative"> {/* <-- SIZE FIX */}
-          <span className="glass-text text-glow animate-glow text-foreground">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight relative"> {/* <-- MARGIN FIX */}
+          <span className="text-glow text-foreground"> {/* <-- FIX: Removed glass-text */}
             Hi, I'm <strong className={`text-gradient ${!nameComplete ? 'typing-cursor' : ''}`}>{nameText || '\u00A0'}</strong>
           </span>
-          <br />
-          {nameComplete && (
-            <span className={`glass-text text-glow mt-2 text-foreground ${!roleComplete ? 'typing-cursor' : ''}`}>
+        </h1>
+        
+        {nameComplete && (
+          <p className="text-lg md:text-2xl text-foreground/90 mb-8"> {/* <-- MOVED ROLE HERE */}
+            <span className={`text-glow ${!roleComplete ? 'typing-cursor' : ''}`}> {/* <-- FIX: Removed glass-text */}
               {roleText || '\u00A0'}
             </span>
-          )}
-        </h1>
+          </p>
+        )}
         
         {roleComplete && (
           <p className="text-lg md:text-xl mb-8 leading-relaxed text-foreground/90">
-            <span className="glass-text">
+            {/* <-- FIX: Removed glass-text span */}
               Currently at IIT Roorkee (iHUB), I'm focused on building AI-first product thinking. 
               As a CUET 2026 aspirant, I'm passionate about generative AI, prompt engineering, and product strategy.
-            </span>
           </p>
         )}
         
@@ -91,7 +92,7 @@ export const Hero = () => {
             <Linkedin size={20} className="text-white" />
           </a>
           <a
-            href="mailto:contacthimanshu222@gmail.com"
+            href="mailto:contacthimanshu222@gmail.com?subject=Portfolio%20enquiry&body=Hi%20Himanshu,"
             className="icon-link-box email"
             aria-label="Email"
           >

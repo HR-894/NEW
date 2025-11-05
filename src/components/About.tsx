@@ -36,10 +36,8 @@ export const About = () => {
             About <span className="text-gradient">Me</span>
           </span>
         </h2>
-        <p className="text-center mb-12">
-          <span className="glass-text">
+        <p className="text-center mb-12 text-foreground/90"> {/* <-- FIX: Removed glass-text */}
             Passionate about leveraging AI to solve real-world problems
-          </span>
         </p>
         
         <Card className="about-card glass-effect p-8 md:p-12 relative overflow-hidden hover:shadow-[0_0_40px_rgba(160,80,240,0.3)] transition-all duration-500">
@@ -48,33 +46,33 @@ export const About = () => {
           <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-primary/30 rounded-br-xl" />
           
           <div className="space-y-6 text-lg leading-relaxed relative">
-            <p className="glass-text">
+            <p className="text-foreground/90"> {/* <-- FIX: Removed glass-text */}
               I'm currently pursuing Product Management & Applied AI at <strong className="text-gradient text-glow">IIT Roorkee (iHUB)</strong>, 
               where I'm learning to bridge the gap between cutting-edge technology and user-centric product development.
             </p>
             
-            <p className="glass-text">
+            <p className="text-foreground/90"> {/* <-- FIX: Removed glass-text */}
               My journey in tech began with a fascination for artificial intelligence and its potential to transform industries. 
               Today, I specialize in <strong className="text-gradient">generative AI</strong>, 
               <strong className="text-gradient"> prompt engineering</strong>, and 
               <strong className="text-gradient"> AI-first product strategy</strong>.
             </p>
             
-            <p className="glass-text">
+            <p className="text-foreground/90"> {/* <-- FIX: Removed glass-text */}
               As a <strong className="text-gradient text-glow">CUET 2026 aspirant</strong>, I'm constantly expanding my knowledge 
               and building projects that showcase the intersection of AI innovation and practical product thinking.
             </p>
             
             <div className="pt-4 border-t border-border">
               <h3 className="text-xl font-bold mb-3">
-                <span className="glass-text text-glow">Core Competencies</span>
+                <span className="text-gradient">Core Competencies</span> {/* <-- FIX: gradient text */}
               </h3>
               <ul className="space-y-2">
-                <li className="glass-text text-sm">• Generative AI & Large Language Models</li>
-                <li className="glass-text text-sm">• Prompt Engineering & AI Optimization</li>
-                <li className="glass-text text-sm">• Product Management & Strategy</li>
-                <li className="glass-text text-sm">• Full-Stack Development (React, Node.js)</li>
-                <li className="glass-text text-sm">• Data Analysis & Visualization</li>
+                <li className="text-foreground/90 text-sm">• Generative AI & Large Language Models</li> {/* <-- FIX: Removed glass-text */}
+                <li className="text-foreground/90 text-sm">• Prompt Engineering & AI Optimization</li> {/* <-- FIX: Removed glass-text */}
+                <li className="text-foreground/90 text-sm">• Product Management & Strategy</li> {/* <-- FIX: Removed glass-text */}
+                <li className="text-foreground/90 text-sm">• Full-Stack Development (React, Node.js)</li> {/* <-- FIX: Removed glass-text */}
+                <li className="text-foreground/90 text-sm">• Data Analysis & Visualization</li> {/* <-- FIX: Removed glass-text */}
               </ul>
             </div>
           </div>

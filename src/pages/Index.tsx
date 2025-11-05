@@ -7,8 +7,8 @@ import { Portfolio } from '@/components/Portfolio';
 import { Timeline } from '@/components/Timeline';
 import { Types } from '@/components/Types';
 import { Contact } from '@/components/Contact';
-import { MouseTracker } from '@/components/MouseTracker';
-import { CustomCursor } from '@/components/CustomCursor';
+// import { MouseTracker } from '@/components/MouseTracker'; // <-- REMOVED
+// import { CustomCursor } from '@/components/CustomCursor'; // <-- REMOVED
 import { ThemeToggle } from '@/components/ThemeToggle';
 
 const Index = () => {
@@ -34,9 +34,9 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen cursor-none"> {/* <-- CURSOR HIDE FIX */}
-      <MouseTracker />
-      <CustomCursor />
+    <div className="relative min-h-screen"> {/* <-- CURSOR HIDE FIX REMOVED */}
+      {/* <MouseTracker /> */}{/* <-- REMOVED */}
+      {/* <CustomCursor /> */}{/* <-- REMOVED */}
       <AnimatedBackground />
       <Navigation />
       <ThemeToggle />

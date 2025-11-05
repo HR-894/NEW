@@ -78,10 +78,8 @@ export const Portfolio = () => {
             Featured <span className="text-gradient">Projects</span>
           </span>
         </h2>
-        <p className="text-center mb-12 max-w-2xl mx-auto">
-          <span className="glass-text">
+        <p className="text-center mb-12 max-w-2xl mx-auto text-foreground/90"> {/* <-- FIX: Removed glass-text */}
             A selection of my recent work in AI, product management, and software development.
-          </span>
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -99,17 +97,18 @@ export const Portfolio = () => {
                 <img
                   src={project.img}
                   alt={project.title}
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">
-                  <span className="glass-text text-glow group-hover:animate-glow">
+                  <span className="text-gradient"> {/* <-- FIX: gradient text */}
                     {project.title}
                   </span>
                 </h3>
-                <p className="glass-text text-sm">{project.desc}</p>
+                <p className="text-foreground/90 text-sm">{project.desc}</p> {/* <-- FIX: Removed glass-text */}
               </div>
             </Card>
           ))}

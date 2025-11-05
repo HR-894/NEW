@@ -15,14 +15,14 @@ All colors MUST be HSL.
     --grad-salmon: 22 100% 74%;
     
     /* Base Colors (FIXED Text Color) */
-    --background: 240 38% 17%;
-    --foreground: 0 0% 100%;
+    --background: 240 38% 17%; /* Dark Blue/Purple Background */
+    --foreground: 0 0% 100%; /* <-- FIX: Pure White for max contrast */
     
     --card: 240 29% 23%;
-    --card-foreground: 0 0% 100%;
+    --card-foreground: 0 0% 100%; /* <-- FIX: Pure White */
     
     --popover: 240 29% 23%;
-    --popover-foreground: 0 0% 100%;
+    --popover-foreground: 0 0% 100%; /* <-- FIX: Pure White */
     
     --primary: 270 84% 63%;
     --primary-foreground: 0 0% 100%;
@@ -30,8 +30,8 @@ All colors MUST be HSL.
     --secondary: 240 29% 23%;
     --secondary-foreground: 0 0% 100%;
     
-    --muted: 240 20% 35%;
-    --muted-foreground: 270 25% 85%;
+    --muted: 0 0% 100% / 0.65; /* rgba(255,255,255,0.65) */
+    --muted-foreground: 0 0% 85%; /* <-- FIX: Neutral light grey */
     
     --accent: 0 100% 78%;
     --accent-foreground: 240 38% 17%;
@@ -39,14 +39,14 @@ All colors MUST be HSL.
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 240 20% 35%;
+    --border: 0 0% 100% / 0.18; /* rgba(255,255,255,0.18) */
     --input: 240 29% 23%;
     --ring: 270 84% 63%;
     
-    --radius: 0.75rem;
+    --radius: 1.125rem; /* 18px */
     
     /* Custom Properties */
-    --glass: 240 29% 23% / 0.8;
+    --glass: 240 29% 23% / 0.6; /* Using dark purple for glass bg */
     --spotlight-size: 400px;
   }
 }
@@ -70,7 +70,7 @@ All colors MUST be HSL.
       hsl(var(--grad-purple)) 35%,
       hsl(var(--grad-pink)) 70%,
       hsl(var(--grad-salmon)) 100%
-    );
+    ); /* <-- BACKGROUND RESTORED */
     background-attachment: fixed;
     min-height: 100vh;
     position: relative;
@@ -103,17 +103,17 @@ All colors MUST be HSL.
 
 @layer utilities {
   .glass-effect {
-    background: hsl(var(--glass));
-    backdrop-filter: blur(12px);
+    background: hsl(var(--card) / 0.6);
+    backdrop-filter: blur(16px);
     border: 1px solid hsl(var(--border));
-    transition: background 0.3s ease, border 0.3s ease;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    transition: background 0.3s ease, border 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   }
   
   .glass-text {
-    text-shadow: 
-      0 0 8px hsl(var(--foreground) / 0.3),
-      0 0 15px hsl(var(--primary) / 0.2);
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
+    color: hsl(var(--foreground));
+    text-shadow: none; /* <-- FIX: Removed shadow for max clarity */
+    filter: none;
   }
   
   /* --- NEW: Section Heading Glass --- */
@@ -131,6 +131,7 @@ All colors MUST be HSL.
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    filter: none; /* <-- FIX: Removed shadow */
   }
   
   .text-glow {
@@ -184,21 +185,7 @@ All colors MUST be HSL.
     @apply scale-110 shadow-[0_0_20px_#D44638];
   }
   
-  /* --- NEW: Multicolor Cursor --- */
-  .cursor-multicolor-dot {
-    background: linear-gradient(
-      90deg,
-      hsl(var(--grad-blue)),
-      hsl(var(--grad-purple)),
-      hsl(var(--grad-pink)),
-      hsl(var(--grad-salmon)),
-      hsl(var(--grad-blue))
-    );
-    background-size: 200% 200%;
-    animation: multicolor-cursor-anim 5s ease infinite;
-    box-shadow: 0 0 10px hsl(var(--primary) / 0.5), 0 0 20px hsl(var(--primary) / 0.3);
-  }
-  /* --- End New --- */
+  /* --- REMOVED: Multicolor Cursor --- */
 
   .animate-float {
     animation: float 6s ease-in-out infinite;
@@ -278,13 +265,7 @@ All colors MUST be HSL.
   }
 }
 
-/* --- NEW: Multicolor Cursor Keyframes --- */
-@keyframes multicolor-cursor-anim {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-/* --- End New --- */
+/* --- REMOVED: Multicolor Cursor Keyframes --- */
 
 @keyframes slideUp {
   from {
