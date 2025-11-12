@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Card } from './ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from './ui/dialog';
 import { Button } from './ui/button';
-import { ExternalLink, Github } from 'lucide-react';
+import { Github, ExternalLink, Linkedin } from "lucide-react";
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -14,34 +14,36 @@ interface Project {
   img: string;
   githubUrl?: string;
   liveUrl?: string;
+  linkedinLink?: string;
 }
 
 const projects: Project[] = [
   {
     title: 'AI Chat Application',
-    desc: 'Built a conversational AI chatbot using GPT-4 API with React and Node.js backend.',
-    img: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop',
-    githubUrl: 'https://github.com/HR-894',
-    liveUrl: '#'
+    desc: 'This is my personal Ai that can run offline and this is based on llma3 and ollama. this is open source.',
+    img: '/project1.png',
+    githubUrl: 'https://github.com/HR-894/HR-AI-MIND',
+    liveUrl: 'https://ai.hraimind.in',
   },
   {
     title: 'Product Analytics Dashboard',
     desc: 'Created a comprehensive analytics platform for tracking user metrics and KPIs.',
-    img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
-    githubUrl: 'https://github.com/HR-894'
+    img: '/project2.png',
+    githubUrl: 'https://github.com/HR-894/HR-894'
   },
   {
     title: 'Prompt Engineering Tool',
-    desc: 'Developed a prompt optimization tool for improving AI model outputs.',
-    img: 'https://images.unsplash.com/photo-1701469784131-23610938f712?w=800&h=600&fit=crop', // <-- IMAGE FIX
-    liveUrl: '#',
-    githubUrl: 'https://github.com/HR-894'
+    desc: 'Developed a prompt optimization tool for improving AI model outputs.Check it out on my LinkedIn Profile Pojects section.',
+    img: '/project3.jpg', // <-- IMAGE FIX
+    liveUrl: 'https://gemini.google.com/gem/9e757c528d1e',
+    linkedinLink: 'https://www.linkedin.com/in/himanshu-raj-373297383'
   },
   {
     title: 'AI Content Generator',
-    desc: 'Built an AI-powered content generation platform with customizable templates.',
-    img: 'https://images.unsplash.com/photo-1676299081847-824916de030a?w=800&h=600&fit=crop',
-    githubUrl: 'https://github.com/HR-894'
+    desc: 'Built an AI-powered content generation platform with customizable templates.Check it out on my LinkedIn Profile Pojects section.',
+    img: '/project4.jpg',
+    liveUrl: 'https://chatgpt.com/g/g-68f1256276d48191a789a0b4ea855347-ai-reels-trend-master',
+    linkedinLink: 'https://www.linkedin.com/in/himanshu-raj-373297383'
   }
 ];
 
@@ -129,6 +131,7 @@ export const Portfolio = () => {
               />
               <p className="text-muted-foreground">{selectedProject.desc}</p>
               <div className="flex gap-3">
+                {/* GitHub Button (Sirf agar githubUrl hai) */}
                 {selectedProject.githubUrl && (
                   <Button asChild variant="outline">
                     <a href={selectedProject.githubUrl} target="_blank" rel="noopener noreferrer">
@@ -137,6 +140,18 @@ export const Portfolio = () => {
                     </a>
                   </Button>
                 )}
+                
+                {/* LinkedIn Button (Sirf agar linkedinLink hai) */}
+                {selectedProject.linkedinLink && (
+                  <Button asChild variant="outline">
+                    <a href={selectedProject.linkedinLink} target="_blank" rel="noopener noreferrer">
+                      <Linkedin className="mr-2" size={16} />
+                      LinkedIn
+                    </a>
+                  </Button>
+                )}
+
+                {/* Live Demo Button (Jaise tha waisa hi) */}
                 {selectedProject.liveUrl && (
                   <Button asChild>
                     <a href={selectedProject.liveUrl} target="_blank" rel="noopener noreferrer">
