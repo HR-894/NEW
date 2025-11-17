@@ -33,14 +33,14 @@ const projects: Project[] = [
   },
   {
     title: 'Prompt Engineering Tool',
-    desc: 'Developed a prompt optimization tool for improving AI model outputs.Check it out on my LinkedIn Profile Pojects section.',
+    desc: 'Developed a prompt optimization tool for improving AI model outputs.Check it out on my LinkedIn Profile Projects section.',
     img: '/project3.jpg', 
     liveUrl: 'https://gemini.google.com/gem/9e757c528d1e',
     linkedinLink: 'https://www.linkedin.com/in/himanshu-raj-373297383'
   },
   {
     title: 'AI Content Generator',
-    desc: 'Built an AI-powered content generation platform with customizable templates.Check it out on my LinkedIn Profile Pojects section.',
+    desc: 'Built an AI-powered content generation platform with customizable templates.Check it out on my LinkedIn Profile Projects section.',
     img: '/project4.jpg',
     liveUrl: 'https://chatgpt.com/g/g-68f1256276d48191a789a0b4ea855347-ai-reels-trend-master',
     linkedinLink: 'https://www.linkedin.com/in/himanshu-raj-373297383'
