@@ -20,7 +20,7 @@ interface Project {
 const projects: Project[] = [
   {
     title: 'AI Chat Application',
-    desc: 'This is my personal Ai that can run offline and this is based on llma3 and ollama. this is open source.',
+    desc: 'This is my personal AI that can run offline and this is based on Llama3 and Phi models.',
     img: '/project1.png',
     githubUrl: 'https://github.com/HR-894/HR-AI-MIND',
     liveUrl: 'https://ai.hraimind.in',
@@ -34,7 +34,7 @@ const projects: Project[] = [
   {
     title: 'Prompt Engineering Tool',
     desc: 'Developed a prompt optimization tool for improving AI model outputs.Check it out on my LinkedIn Profile Pojects section.',
-    img: '/project3.jpg', // <-- IMAGE FIX
+    img: '/project3.jpg', 
     liveUrl: 'https://gemini.google.com/gem/9e757c528d1e',
     linkedinLink: 'https://www.linkedin.com/in/himanshu-raj-373297383'
   },
